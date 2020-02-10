@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Console</title>
+        <style>
+            @import url("https://fonts.googleapis.com/css?family=Source+Code+Pro:400,500,600,700");
+
+            * {
+                
+                padding: 0;
+                margin: 0;
+                font-family: 'Source Code Pro', sans-serif;
+                font-weight: 600;
+                font-size: 16px;
+            }
+
+            body {
+                background: #000000;
+                padding: 5px;
+            }
+
+            p.debug {
+                color: snow;
+            }
+
+            p.info {
+                color: lawngreen;
+            }
+            
+            p.warn {
+                color: goldenrod;
+            }
+
+            p.error {
+                color: #aa0000;
+            }
+        </style>
+    </head>
+    <body>
+        <script>
+            let realConsole = window.console;
+
+            function _createLogNode(type, object)
+            {
+                let objectString = (typeof object === 'string') ? object : JSON.stringify(object);
+                let logNode = document.createElement('p');
+                let text = document.createTextNode(objectString);
+                logNode.classList.add(type);
+                logNode.appendChild(text);
+                document.body.appendChild(logNode);
+            }
+
+            let console = {
+                log: (...args) =>
+                {
+                    _createLogNode('debug', (args.length == 1 ) ? args[0] : args.join(' '));
+                    realConsole.log(args);
+                },
+
+                info: (...args) =>
+                {
+                    _createLogNode('info', (args.length == 1 ) ? args[0] : args.join(' '));
+                    realConsole.info(args);
+                },
+
+                warn : (...args) =>
+                {
+                    _createLogNode('warn', (args.length == 1 ) ? args[0] : args.join(' '));
+                    realConsole.warn(args);
+                },
+
+                error: (...args) =>
+                {
+                    _createLogNode('error', (args.length == 1 ) ? args[0] : args.join(' '));
+                    realConsole.error(args);
+                }
+            };
+        </script>
+        $js
+    </body>
+</html>

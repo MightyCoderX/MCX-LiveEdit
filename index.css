@@ -1,0 +1,138 @@
+@import url("https://fonts.googleapis.com/css?family=Source+Code+Pro:400,500,600,700");
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Source Code Pro', sans-serif;
+}
+
+header {
+    position: relative;
+    width: 100%;
+    height: 60px;
+    background: #1028ff;
+    color: white;
+}
+
+header h1 {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    font-size: 40px;
+    font-weight: 600;
+    text-align: center;
+}
+
+header .button-settings {
+    position: absolute;
+    transform: translateY(-50%);
+    top: 50%;
+    right: 20px;
+    cursor: pointer;
+    z-index: 1000;
+}
+
+.popup-settings {
+    position: absolute;
+    transform: translateX(-50%);
+    top: 20%;
+    left: 50%;
+    background: linear-gradient(to bottom, #777, #444);
+    z-index: 999;
+    padding: 10px 20px;
+    font-size: 15px;
+    border-radius: 10px;
+    width: 30%;
+    min-width: 300px;
+    height: 70%;
+    overflow: hidden;
+}
+
+.popup-settings .popup-settings__title {
+    color: #fff;
+    margin-bottom: 10px;
+    font-size: 25px;
+    width: 100%;
+    text-align: center;
+}
+
+.popup-settings .settings-container {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;
+    height: auto;
+    max-height: 87%;
+    min-height: 100px;
+    width: 100%;
+    overflow-y: auto;
+    padding-top: 10px;
+}
+
+.popup-settings .setting {
+    width: 100%;
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.popup-settings .setting label {
+    min-width: 100px;
+    max-width: 200px;
+    color: #c7c7c7;
+}
+
+.popup-settings .setting select {
+    min-width: 80px;
+    width: 50%;
+    max-width: 130px;
+    height: 20px;
+}
+
+.popup-settings .setting input[type="number"] {
+    width: 50px;
+    height: 20px;
+}
+
+div.box-content {
+    height: calc(100vh - 60px);
+    width: 100%;
+    display: flex;
+}
+
+div.editor {
+    position: relative;
+    height: 100%;
+    width: 100%;
+}
+
+.run-button {
+    display: none;
+    position: absolute;
+    transform: translateY(-50%);
+    top: 50%;
+    left: 4%;
+    background: linear-gradient(90deg, #ddd, #aaa);
+    width: 20px;
+    height: 25px;
+    clip-path: polygon(0 0, 0 100%, 100% 50%);
+    cursor: pointer;
+}
+
+iframe.display {
+    background-color: #333;
+    height: 100%;
+    width: 100%;
+    border: none;
+}
+
+.split, .gutter.gutter-horizontal {
+    cursor: ew-resize;
+}
+.gutter.gutter-horizontal {
+    cursor: ew-resize;
+}
